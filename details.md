@@ -1,0 +1,1 @@
+this was also one of my really old past projects when i was experimenting on js when i was learning it.
