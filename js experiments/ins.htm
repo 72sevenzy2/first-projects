@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="72">
+    <meta name="description" content="zzzzzzzzzzzz">
+    <meta name="keywords" content="HTML, tags, frontend, aesthetic, webdev, 72">
+    <meta name="generator" content="Handwritten">
+    <meta name="copyright" content="© 2025 72">
+    <meta name="rating" content="General">
+    <meta name="distribution" content="global">
+    <meta name="revisit-after" content="7 days">
+    <meta name="language" content="en">
+    <meta name="owner" content="72">
+    <meta name="creator" content="a developer who values depth">
+    <meta name="theme" content="intention">
+    <meta name="build" content="lightweight & handcrafted">
+    <meta name="mood" content="calm">
+    <meta name="designer" content="the function speaks">
+    <meta property="og:title" content="72">
+    <meta property="og:description" content="A personal experiment.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com">
+    <meta property="og:image" content="https://example.com/meta-preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="72">
+    <meta name="twitter:description" content="purposeful.">
+    <meta name="twitter:image" content="https://example.com/meta-preview.jpg">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="application-name" content="72's">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-TileImage" content="https://example.com/tile-icon.png">
+    <meta name="subject" content="web engineering">
+
+    <title>Javascript GUI</title>
+    <link rel="stylesheet" href="ins.css">
+</head>
+
+<body>
+    <script type="module" src="ins.js"></script>
+    <script>
+        // creation of the elements needed for the gui 
+        const guiwrapper = document.createElement("div");
+        const guiclosebtn = document.createElement("p");
+        // styling the outter wrapper
+        Object.assign(guiwrapper.style, {
+            background: "black",
+            color: "black",
+            padding: "10px",
+            position: "fixed",
+            fontFamily: "arial",
+            width: "30vw",
+            left: "20vw",
+            top: "10vh",
+            borderRadius: "20px",
+            height: "40vh"
+        });
+        guiwrapper.textContent = "";
+        // appending to the page
+        document.body.appendChild(guiwrapper);
+        // the close btn for the gui
+        guiclosebtn.textContent = "C";
+        guiwrapper.appendChild(guiclosebtn);
+        // styling of the close btn
+        Object.assign(guiclosebtn.style, {
+            padding: "10px",
+            color: "white",
+            background: "red",
+            width: "fit-content",
+            borderRadius: "10px",
+            position: "relative",
+            left: "27.5vw",
+            top: "-1vh",
+            cursor: "pointer",
+            fontWeight: "bold"
+        })
+        // quick docoument body adjustments for better css use
+        Object.assign(document.body.style, {
+            margin: "0",
+            padding: "0",
+            boxSizing: "border-box"
+        });
+        // box sizing configs
+        const bsize = document.createElement("style");
+        bsize.textContent = `
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+`;
+        // ^ will be used if needed to but not for the time being
+        // close button settings
+        guiclosebtn.addEventListener("click", () => {
+            let guiclosedmsg;
+            let reopenbtn;
+            async function closedmsg() {
+                const closedguimessage = await getguiclosedmessage();
+                document.body.appendChild(closedguimessage);
+            }
+            function getguiclosedmessage() {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        guiclosedmsg = document.createElement("p");
+                        guiclosedmsg.id = "guiclosedmsg";
+                        const closedguimsg = "This GUI has been closed";
+                        guiclosedmsg.textContent = closedguimsg;
+                        document.body.appendChild(guiclosedmsg);
+                        guiclosedmsg.classList.add("fade-in");
+                        // forcing reflow
+                        requestAnimationFrame(() => {
+                            requestAnimationFrame(() => {
+                                guiclosebtn.classList.remove("fade-in");
+                                void guiclosebtn.offsetHeight;
+                                guiclosebtn.classList.add("fade-in");
+                            });
+                        });
+                        //trigerring a reflow once again just in case
+                        function restartanimation(ell, classname) {
+                            ell.classList.remove(classname);
+                            void ell.offsetHeight;
+                            ell.classList.add(classname);
+                        }
+                        restartanimation(guiclosebtn, "fade-in");
+                        resolve(guiclosedmsg);
+                    }, 3000);
+                });
+            }
+            function closingclosedmsg() {
+                return new Promise((resolve) => {
+                    reopenbtn.addEventListener("click", () => {
+                        if (guiclosedmsg) {
+                            guiclosedmsg.remove();
+                        }
+                        resolve();
+                    });
+                });
+            }
+            async function removeclosedmsg() {
+                await closingclosedmsg();
+            }
+            const closew = window.confirm("Are you sure you want to close this GUI?");
+            if (closew) {
+                guiwrapper.classList.add("fade-out");
+                // force reflow for the css animation
+                setTimeout(() => {
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            guiwrapper.classList.remove("fade-out");
+                            void guiwrapper.offsetHeight;
+                            guiwrapper.classList.add("fade-out");
+                        });
+                    });
+                    // another reflow
+                    restartanimation(guiwrapper, "fade-out");
+                }, 3000);
+                // listening if the fade out animation has been finished then only may the gui be removed
+                guiwrapper.addEventListener("animationend", () => {
+                    guiwrapper.remove();
+                }, { once: true });
+                // alternative just in case
+                setTimeout(() => {
+                    guiwrapper.remove();
+                }, 5000);
+                closedmsg();
+                // Create reopen button after 5 seconds
+                setTimeout(() => {
+                    reopenbtn = document.createElement("button");
+                    reopenbtn.textContent = "Reopen GUI";
+                    Object.assign(reopenbtn.style, {
+                        background: "red",
+                        fontWeight: "700",
+                        border: "none",
+                        color: "white",
+                        fontSize: "20px",
+                        padding: "15px 30px",
+                        borderRadius: "10px",
+                        position: "fixed",
+                        top: "20px",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        zIndex: "9999",
+                        cursor: "pointer"
+                    });
+                    // Append to body so it’s not dependent on guiwrapper
+                    document.body.appendChild(reopenbtn);
+                    reopenbtn.classList.add("fade-in");
+                    // seperate function
+                    removeclosedmsg();
+                    // When clicked, re-add the GUI and remove this button
+                    reopenbtn.addEventListener("click", () => {
+                        document.body.appendChild(guiwrapper);
+                        reopenbtn.remove();
+                        guiclosedmsg.remove();
+                    });
+                    // seperate listener i guess
+                    reopenbtn.addEventListener("click", () => {
+                        const reopenconfirm = window.confirm("Are you sure you want to reopen this GUI?");
+                        if (reopenconfirm) {
+                            document.body.appendChild(guiwrapper);
+                        }
+                        else {
+                            document.body.appendChild(reopenbtn);
+                            guiwrapper.remove();
+                        }
+                    });
+                }, 5000); // 3 seconds of wait time before the reopening btn appears
+                setTimeout(() => {
+                    // forcing a reflow trigger
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            reopenbtn.classList.remove("fade-in");
+                            void reopenbtn.offsetHeight;
+                            reopenbtn.classList.add("fade-in");
+                        });
+                    });
+                    // another force reflow trigger just in case cs why not
+                    restartanimation(reopenbtn, "fade-in");
+                }, 5000);
+                guiclosebtn.classList.remove("fade-in");
+            }
+        });
+        // inner gui creation
+        const innerlighting = document.createElement("div");
+        guiwrapper.appendChild(innerlighting);
+        //styling of the inner lighting
+        Object.assign(innerlighting.style, {
+            color: "",
+            background: "gray",
+            width: "390px",
+            height: "180px",
+            marginLeft: "10px",
+            borderRadius: "15px",
+            zIndex: "999"
+        });
+        const innerlighting2 = document.createElement("div");
+        guiwrapper.appendChild(innerlighting2);
+        // styling 
+        Object.assign(innerlighting2.style, {
+            color: "",
+            zIndex: "999",
+            background: "gray",
+            width: "350px",
+            height: "100px",
+            position: "relative",
+            top: "-36.5vh",
+            left: "0.7vw",
+            borderRadius: "15px"
+        })
+    </script>
+</body>
+
+</html>

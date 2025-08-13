@@ -1,0 +1,1346 @@
+html,
+body {
+    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255));
+    background-size: 400% 400%;
+    border-radius: inherit;
+    /* going to make sure overflow stays initial to the content witout it missing out on a animation */
+    cursor: crosshair;
+    /* giving the clients their respective pc crosshair while on the web */
+    overflow: hidden;
+}
+
+body::before,
+body::after {
+    content: '';
+    /* going to add a cosmetic vibe background to make the visuals look not too bad */
+    background: linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0));
+    position: absolute;
+    overflow: hidden;
+    /* overflow remains dispersed */
+    top: -3;
+    bottom: -3;
+    left: -3;
+    right: -3;
+    z-index: -1;
+    /* insuring the background doesnt override view from other parts of the website */
+    width: 850px;
+    height: 635px;
+    margin-top: -15px;
+    margin-left: -10px;
+    border-end-end-radius: 150px;
+    border-start-end-radius: 150px;
+}
+
+::-webkit-scrollbar {
+    width: 0.1px;
+    /* insuring the scrollbar stays hidden, based on personal preferences */
+}
+
+.topdecop {
+    content: '';
+    /* part of me felt like adding this was good to insure the nonexistent content stays hidden */
+    position: absolute;
+    width: 1300px;
+    height: 20px;
+    border-radius: 30px;
+    background-color: rgb(0, 0, 0);
+}
+
+.topdeco::after,
+.topdeco:before {
+    content: '';
+    /* same thing as before, (insuring whatever inner content stays hidden) */
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    background: conic-gradient(from 0deg, rgb(0, 0, 0), rgb(0, 0, 0));
+    background-size: 900% 900%;
+    /* also adding a conic gradient for better outline effect functionality unlike the linear gradient. */
+    top: -3;
+    left: -3;
+    bottom: -3;
+    right: -3;
+    width: 1400px;
+    height: 30px;
+    border-radius: 30px;
+    margin-left: -5px;
+    margin-top: 11px;
+}
+
+.topdeco::after,
+.topdeco:before {
+    animation: topdecoanim2 20s linear infinite;
+    /* ^ archived animations (not in use) */
+    animation-timing-function: ease-in-out cubic-bezier(1, 0, 0, 1);
+    transition: 10s all linear;
+    /* insuring the animation stays put and clean */
+}
+
+@keyframes archived {
+    0% {
+        clip-path: inset(100% 0% 0% 0%);
+    }
+
+    5% {
+        clip-path: inset(0% 100% 0% 0%);
+    }
+
+    10% {
+        clip-path: inset(0% 0% 100% 0%);
+    }
+
+    15% {
+        clip-path: inset(0% 0% 0% 100%);
+    }
+
+    20% {
+        clip-path: inset(100% 0% 0% 0%);
+    }
+
+    25% {
+        clip-path: inset(0% 100% 0% 0%);
+    }
+
+    30% {
+        clip-path: inset(0% 0% 100% 0%);
+    }
+
+    35% {
+        clip-path: inset(0% 0% 0% 100%);
+    }
+
+    40% {
+        clip-path: inset(100% 0% 0% 0%);
+    }
+
+    45% {
+        clip-path: inset(0% 100% 0% 0%);
+    }
+
+    50% {
+        clip-path: inset(0% 0% 100% 0%);
+    }
+
+    55% {
+        clip-path: inset(0% 0% 0% 100%);
+    }
+
+    60% {
+        clip-path: inset(100% 0% 0% 0%);
+    }
+
+    65% {
+        clip-path: inset(0% 100% 0% 0%);
+    }
+
+    70% {
+        clip-path: inset(0% 0% 100% 0%);
+    }
+
+    75% {
+        clip-path: inset(0% 0% 0% 100%);
+    }
+
+    80% {
+        clip-path: inset(100% 0% 0% 0%);
+    }
+
+    85% {
+        clip-path: inset(0% 100% 0% 0%);
+    }
+
+    90% {
+        clip-path: inset(0% 0% 100% 0%);
+    }
+
+    95% {
+        clip-path: inset(0% 0% 0% 100%);
+    }
+
+    100% {
+        clip-path: inset(100% 0% 0% 0%);
+    }
+
+    /* ending on the inset being 100% at first due to it seeming smoother to the animation of the decorations */
+
+}
+
+.topdeco {
+    position: absolute;
+    /* insuring the content stays put and doesnt drag other things along with it */
+    height: auto;
+    width: auto;
+    margin-left: -5px;
+    margin-top: -19px;
+    /* position inheriting the one mentioned before, (the p class) */
+}
+
+.bottomdecop {
+    content: '';
+    position: absolute;
+    /* same thing as before i like to insure content stays fully dispersed */
+    background-color: rgb(0, 0, 0);
+    border-radius: 30px;
+    width: 1300px;
+    height: 20px;
+}
+
+.bottomdeco {
+    position: absolute;
+    /* insuring the content doesnt drag other contents along with it when using margins to move it */
+    height: auto;
+    width: auto;
+    margin-top: 576px;
+    margin-left: -5px;
+}
+
+.bottomdeco::after,
+.bottomdeco::before {
+    content: '';
+    /* insuring content stays dispersed */
+    background: conic-gradient(from 0deg, rgb(0, 0, 0), rgb(0, 0, 0));
+    /* conic gradients in my opinion ^, work better with outlines then linear gradients */
+    background-size: 900% 900%;
+    z-index: 1;
+    top: -3;
+    bottom: -3;
+    left: -3;
+    right: -3;
+    position: absolute;
+    overflow: hidden;
+    width: 1400px;
+    height: 30px;
+    margin-left: -5px;
+    margin-top: 11px;
+    border-radius: 30px;
+}
+
+.bottomdeco::after,
+.bottomdeco::before {
+    animation: bottomdecoanim 20s linear infinite;
+    /* ^ archived animation (not in use) */
+    animation-timing-function: ease-in-out cubic-bezier(1, 0, 0, 1);
+    transition: 10s all linear;
+    /* insuring animation runs smoothly, (although very little attention will be paid
+    to it.) */
+}
+
+@keyframes archived {
+    0% {
+        clip-path: inset(100% 0% 0% 0%);
+    }
+
+    5% {
+        clip-path: inset(0% 100% 0% 0%);
+    }
+
+    10% {
+        clip-path: inset(0% 0% 100% 0%);
+    }
+
+    15% {
+        clip-path: inset(0% 0% 0% 100%);
+    }
+
+    20% {
+        clip-path: inset(100% 0% 0% 0%);
+    }
+
+    25% {
+        clip-path: inset(0% 100% 0% 0%);
+    }
+
+    30% {
+        clip-path: inset(0% 0% 100% 0%);
+    }
+
+    35% {
+        clip-path: inset(0% 0% 0% 100%);
+    }
+
+    40% {
+        clip-path: inset(100% 0% 0% 0%);
+    }
+
+    45% {
+        clip-path: inset(0% 100% 0% 0%);
+    }
+
+    50% {
+        clip-path: inset(0% 0% 100% 0%);
+    }
+
+    55% {
+        clip-path: inset(0% 0% 0% 100%);
+    }
+
+    60% {
+        clip-path: inset(100% 0% 0% 0%);
+    }
+
+    70% {
+        clip-path: inset(0% 100% 0% 0%);
+    }
+
+    75% {
+        clip-path: inset(0% 0% 100% 0%);
+    }
+
+    80% {
+        clip-path: inset(0% 0% 0% 100%);
+    }
+
+    85% {
+        clip-path: inset(100% 0% 0% 0%);
+    }
+
+    90% {
+        clip-path: inset(0% 100% 0% 0%);
+    }
+
+    95% {
+        clip-path: inset(0% 0% 100% 0%);
+    }
+
+    100% {
+        clip-path: inset(0% 0% 0% 100%);
+    }
+
+    /* ending on the inset being 100% at first due to it seeming smoother to the animation of the decorations */
+
+}
+
+.mainheading {
+    position: absolute;
+    font-family: 'arial', sans-serif;
+    font-weight: 900;
+    color: rgb(134, 134, 134);
+    text-transform: uppercase;
+}
+
+.mainheadingp2 {
+    font-family: 'poppins', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+}
+
+.mainh2 {
+    margin-left: 240px;
+    margin-top: 30px;
+    font-size: 1.2em;
+}
+
+header {
+    margin-top: 130px;
+    font-size: 1.2em;
+    margin-left: 910px;
+    width: calc(100%);
+    /* setting the widh initial to however big the content is */
+    height: calc(100%);
+    /* also setting the height inital to however long the content is aswell */
+    position: absolute;
+}
+
+.mainheading:hover,
+.mainheadingp2:hover {
+    color: rgb(134, 134, 134) !important;
+    transition: all;
+    /* only mainheadingp2 is being affected by this now. */
+}
+
+.mainh1ba::before,
+.mainh1ba::after {
+    content: '';
+    position: absolute;
+    overflow: hidden;
+    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255));
+    top: -3;
+    bottom: -3;
+    left: -3;
+    right: -3;
+    z-index: -3;
+    width: 440px;
+    height: 90px;
+    margin-top: 140px;
+    margin-left: 885px;
+    border-radius: 20px;
+    /* adding unique border radius(s) to make the outline animation */
+    border-end-start-radius: 70px;
+    border-end-end-radius: 70px;
+}
+
+.mainh2ba::before,
+.mainh2ba::after {
+    content: '';
+    overflow: hidden;
+    position: absolute;
+    background: conic-gradient(from 0deg, #c9c9c9, #cccccc);
+    top: -3;
+    bottom: -3;
+    left: -3;
+    right: -3;
+    z-index: -4;
+    width: 450px;
+    height: 110px;
+    margin-top: 131px;
+    margin-left: 879px;
+    /* once more, adding a eye catching border radius here aswell */
+    border-radius: 30px;
+    border-end-start-radius: 80px;
+    border-end-end-radius: 80px;
+}
+
+.mainh2ba::before,
+.mainh2ba::after {
+    animation: mainh2baanim 10s linear infinite;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    /* eye catching timing function i figured ^ */
+    transition: 5s linear;
+}
+
+@keyframes mainh2baanim {
+    0% {
+        clip-path: inset(100% 0% 0% 0%);
+    }
+
+    5% {
+        clip-path: inset(0% 100% 0% 0%);
+    }
+
+    10% {
+        clip-path: inset(0% 0% 100% 0%);
+    }
+
+    15% {
+        clip-path: inset(0% 0% 0% 100%);
+    }
+
+    20% {
+        clip-path: inset(100% 0% 0% 0%);
+    }
+
+    25% {
+        clip-path: inset(0% 100% 0% 0%);
+    }
+
+    30% {
+        clip-path: inset(0% 0% 100% 0%);
+    }
+
+    35% {
+        clip-path: inset(0% 0% 0% 100%);
+    }
+
+    40% {
+        clip-path: inset(100% 0% 0% 0%);
+    }
+
+    45% {
+        clip-path: inset(0% 100% 0% 0%);
+    }
+
+    50% {
+        clip-path: inset(0% 0% 100% 0%);
+    }
+
+    55% {
+        clip-path: inset(0% 0% 0% 100%);
+    }
+
+    60% {
+        clip-path: inset(100% 0% 0% 0%);
+    }
+
+    65% {
+        clip-path: inset(0% 100% 0% 0%);
+    }
+
+    70% {
+        clip-path: inset(0% 0% 100% 0%);
+    }
+
+    75% {
+        clip-path: inset(0% 0% 0% 100%);
+    }
+
+    80% {
+        clip-path: inset(100% 0% 0% 0%);
+    }
+
+    85% {
+        clip-path: inset(0% 100% 0% 0%);
+    }
+
+    90% {
+        clip-path: inset(0% 0% 100% 0%);
+    }
+
+    95% {
+        clip-path: inset(0% 0% 0% 100%);
+    }
+
+    100% {
+        clip-path: inset(100% 0% 0% 0%);
+    }
+
+    /* clip paths finished ^ */
+
+}
+
+
+.mech1 {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 200px;
+    height: 11em;
+    width: 11em;
+    animation: m1anim 5s linear infinite;
+}
+
+.m1 {
+    position: absolute;
+    margin-left: 663px;
+    margin-top: 120px;
+}
+
+/* concludes setting the m1 image ^ */
+/* all is needed now is the animation which ill set after configuring all the mechanism
+images which however, wont take very long long */
+
+.mech2 {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 200px;
+    height: 11em;
+    width: 11em;
+    animation: m2anim 2s linear infinite;
+}
+
+.m2 {
+    position: absolute;
+    margin-top: 176px;
+}
+
+/* concludes setting the m2 image ^ */
+
+.mech3 {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 200px;
+    width: 4.5em;
+    height: 4.5em;
+    animation: m3anim 8s linear infinite;
+}
+
+.m3 {
+    position: absolute;
+    margin-left: 101px;
+    margin-top: -238px;
+}
+
+/* concludes m3 ^ */
+
+.mech4 {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 200px;
+    width: 4.5em;
+    height: 4.5em;
+    animation: m4anim 3s linear infinite;
+}
+
+.m4 {
+    position: absolute;
+    margin-top: 405px;
+}
+
+/* concludes m4 ^ */
+
+.mech5 {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 200px;
+    width: 2.9em;
+    height: 2.9em;
+    animation: m5anim 7s linear infinite;
+}
+
+.m5 {
+    position: absolute;
+    margin-left: 30px;
+    margin-top: -190.5px;
+}
+
+/* concludes m5 ^ */
+
+/* gonna do all the animations below the configurations */
+
+@keyframes m1anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        transition: all;
+    }
+}
+
+@keyframes m2anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+        transition: all;
+    }
+}
+
+@keyframes m3anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        transition: all;
+    }
+}
+
+@keyframes m4anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+        transition: all;
+    }
+}
+
+@keyframes m5anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        transition: all;
+    }
+}
+
+.mech1:hover {
+    animation-play-state: paused;
+    transition: linear;
+}
+
+.mech2:hover {
+    animation-play-state: paused;
+    transition: linear;
+}
+
+.mech3:hover {
+    animation-play-state: paused;
+    transition: linear;
+}
+
+.mech4:hover {
+    animation-play-state: paused;
+    transition: linear;
+}
+
+.mech5:hover {
+    animation-play-state: paused;
+    transition: linear;
+}
+
+/* ^ all the hover animations done aswell making it more interactive to the client side */
+
+.bb1 {
+    content: '';
+    background-color: rgb(255, 255, 255);
+    width: 80px;
+    height: 30px;
+    border-radius: 20px;
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    animation: none;
+}
+
+.bubble1 {
+    position: absolute;
+    margin-top: -15px;
+    margin-left: 0px;
+}
+
+.bb2 {
+    position: absolute;
+    overflow: hidden;
+    content: '';
+    background-color: rgb(255, 255, 255);
+    width: 65px;
+    height: 30px;
+    border-radius: 20px;
+    z-index: 1;
+    animation: none;
+}
+
+.bubble2 {
+    position: absolute;
+    margin-left: 170px;
+}
+
+.bb3 {
+    content: '';
+    position: absolute;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    width: 65px;
+    height: 30px;
+    border-radius: 20px;
+    z-index: 1;
+    animation: none;
+}
+
+.bubble3 {
+    position: absolute;
+    margin-left: 170px;
+}
+
+.bb4 {
+    position: absolute;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    width: 65px;
+    height: 30px;
+    border-radius: 20px;
+    z-index: 1;
+    animation: bb4anim 4s linear infinite;
+    animation-timing-function: cubic-bezier(1, 0, 0, 01);
+    transition: all linear;
+    /* insuring animation goes smoothly */
+}
+
+.bubble4 {
+    margin-left: 210px;
+    position: absolute;
+}
+
+.bb5 {
+    position: absolute;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    width: 65px;
+    height: 30px;
+    border-radius: 20px;
+    z-index: 1;
+    animation: bb5anim 4s linear infinite;
+    animation-timing-function: cubic-bezier(1, 0, 0, 1);
+    transition: all linear;
+    /* insuring animation goes smoothly */
+}
+
+.bubble5 {
+    position: absolute;
+    margin-top: 550px;
+}
+
+.bb6 {
+    position: absolute;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    width: 65px;
+    height: 30px;
+    border-radius: 20px;
+    z-index: 1;
+    animation: none;
+}
+
+.bubble6 {
+    position: absolute;
+    margin-left: -210px;
+}
+
+.bb7 {
+    position: absolute;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    width: 65px;
+    height: 30px;
+    border-radius: 20px;
+    z-index: 1;
+    animation: none;
+}
+
+.bubble7 {
+    position: absolute;
+    margin-left: -170px;
+}
+
+.bb8 {
+    position: absolute;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    z-index: 1;
+    width: 80px;
+    height: 30px;
+    animation: none;
+}
+
+.bubble8 {
+    position: absolute;
+    margin-left: -170px;
+}
+
+/* finished setting up all the buttons, now gonna start working on all the interactive animations below */
+/* also going to be making animations using pseudo classes (css ones) */
+
+.bb1:hover {
+    transform: scale(0.9);
+    transition: 0.1s ease-in-out;
+}
+
+.bb1:active {
+    background-color: rgb(0, 0, 0);
+    transition: all;
+}
+
+.bb2:hover {
+    transform: scale(0.9);
+    transition: 0.1s ease-in-out;
+}
+
+.bb2:active {
+    background-color: rgb(0, 0, 0);
+    transition: all;
+}
+
+.bb3:hover {
+    transform: scale(0.9);
+    transition: 0.1s ease-in-out;
+}
+
+.bb3:active {
+    background-color: rgb(0, 0, 0);
+    transition: all;
+}
+
+.bb4:hover {
+    transform: scale(0.9);
+    transition: 0.1s ease-in-out;
+}
+
+.bb4:active {
+    background-color: rgb(0, 0, 0);
+    transition: all;
+}
+
+@keyframes bb4anim {
+    0% {
+        transform: translateX(90px);
+        transition: all;
+    }
+
+    50% {
+        transform: translateX(-90px);
+        transition: all;
+    }
+
+    100% {
+        transform: translateX(90px);
+        transition: all;
+    }
+
+    /* insuring smooth animations from the most little details i can add */
+
+}
+
+@keyframes bb5anim {
+    0% {
+        transform: translateX(90px);
+        transition: all;
+    }
+
+    50% {
+        transform: translateX(-90px);
+        transition: all;
+    }
+
+    100% {
+        transform: translateX(90px);
+        transition: all;
+    }
+
+    /* insuring smooth animations from the most little details i can add (x2) */
+
+}
+
+.bb5:hover {
+    transform: scale(0.9);
+    transition: 0.1s ease-in-out;
+}
+
+.bb5:active {
+    background-color: rgb(0, 0, 0);
+    transition: all;
+}
+
+.bb6:hover {
+    transform: scale(0.9);
+    transition: 0.1s ease-in-out;
+}
+
+.bb6:active {
+    background-color: rgb(0, 0, 0);
+    transition: all;
+}
+
+.bb7:hover {
+    transform: scale(0.9);
+    transition: 0.1s ease-in-out;
+}
+
+.bb7:active {
+    background-color: rgb(0, 0, 0);
+}
+
+.bb8:hover {
+    transform: scale(0.9);
+    transition: 0.1s ease-in-out;
+}
+
+.bb8:active {
+    background-color: rgb(0, 0, 0);
+    transition: all;
+}
+
+/* that concludes all the animations ^^ */
+/* next, going to be configuring 2 more spare flywheels for detail purposes. */
+
+.mech6 {
+    position: absolute;
+    overflow: hidden;
+    width: 1.8em;
+    height: 1.8em;
+    border-radius: 200px;
+    animation: m6anim 4s linear infinite;
+}
+
+.mech6:hover {
+    animation-play-state: paused;
+    transition: linear;
+}
+
+.m6 {
+    position: absolute;
+    margin-top: 122px;
+    margin-left: 811px;
+}
+
+.mech7 {
+    position: absolute;
+    overflow: hidden;
+    width: 1.8em;
+    height: 1.8em;
+    border-radius: 200px;
+    animation: m7anim 6s linear infinite;
+}
+
+.mech7:hover {
+    animation-play-state: paused;
+    transition: linear;
+}
+
+.m7 {
+    position: absolute;
+    margin-top: 319px;
+}
+
+@keyframes m6anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes m7anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+/* that quickly concludes ^^ */
+/* going to configure 4 more and thats all the flywheels for the kd helper perhaps */
+
+.mech8 {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 200px;
+    width: 100px;
+    height: 100px;
+    animation: m8anim 5s linear infinite;
+}
+
+.m8 {
+    position: absolute;
+    margin-left: 1260px;
+    margin-top: 5.5px;
+}
+
+.mech9 {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 200px;
+    width: 100px;
+    height: 100px;
+    animation: m9anim 5s linear infinite;
+}
+
+.m9 {
+    position: absolute;
+    margin-top: 482px;
+}
+
+.mech10 {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 200px;
+    width: 1.1em;
+    height: 1.1em;
+    animation: m10anim 2s linear infinite;
+}
+
+.m10 {
+    position: absolute;
+    margin-left: 80px;
+    margin-top: 82px;
+}
+
+.mech11 {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 200px;
+    width: 1.1em;
+    height: 1.1em;
+    animation: m11anim 5s linear infinite;
+}
+
+.m11 {
+    position: absolute;
+    margin-top: -564px;
+}
+
+/* that concludes all the kd helpers */
+/* going to continue building each ones respective animations individually */
+
+@keyframes m8anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        transition: all;
+    }
+}
+
+.mech8:hover {
+    animation-play-state: paused;
+    transition: calc(100s 0.1s) ease-out;
+}
+
+@keyframes m9anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+        transition: all;
+    }
+}
+
+.mech9:hover {
+    animation-play-state: paused;
+    transition: calc(100s 0.1s) ease-out;
+}
+
+@keyframes m10anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        transition: all;
+    }
+}
+
+.mech10:hover {
+    animation-play-state: paused;
+    transition: calc(100s 0.1s) ease-out;
+}
+
+@keyframes m11anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+        transition: all;
+    }
+}
+
+.mech11:hover {
+    animation-play-state: paused;
+    transition: calc(100s 0.1s) ease-out;
+}
+
+/* finished up all the respective animations */
+
+.sb {
+    content: '';
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    width: 15px;
+    height: 50px;
+    border-radius: 20px;
+    animation: sbanim 2s linear infinite;
+    animation-timing-function: cubic-bezier(1, 0, 0, 1);
+    transition: linear;
+    /* ^ insuring animation runs smooth */
+}
+
+@keyframes sbanim {
+
+    0% {
+        transform: translateY(160px);
+        transition: all;
+    }
+
+    50% {
+        transform: translateY(-160px);
+        transition: all;
+    }
+
+
+    100% {
+        transform: translateY(160px);
+        transition: all;
+    }
+}
+
+.specialbubble {
+    position: absolute;
+    left: 860px;
+    top: 300px;
+}
+
+/* that concludes for the last bubble and ive also learnt to implement new tools such as,
+top, left, right, and bottom instead of using margins to move containers/contents here and there.
+its a bit late for me to just get this but everyone eventually starts somewhere and learns things
+late or early, i see as a part of my development, not a disadvantage. */
+
+.introduction {
+    position: absolute;
+    font-family: monospace;
+    font-weight: 900;
+    font-size: 1.5rem;
+    text-shadow: 0.4px 0.4px 0.4px rgb(0, 0, 0);
+}
+
+.introduction:hover {
+    color: rgb(255, 255, 255);
+    transition: all;
+}
+
+.intro {
+    position: absolute;
+    left: 930px;
+    width: 100%;
+    top: 300px;
+}
+
+.introduction2 {
+    content: '';
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-family: 'arial', sans-serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    text-transform: none;
+    opacity: 0.3;
+}
+
+.introduction2:hover {
+    color: rgb(0, 0, 0);
+    transition: all;
+}
+
+.intro2 {
+    position: absolute;
+    left: -830px;
+    top: -200px;
+    width: 100%;
+}
+
+.introduction3 {
+    content: '';
+    position: absolute;
+    color: rgb(88, 202, 255);
+    font-weight: 900;
+    font-size: 3rem;
+    opacity: 0.3;
+}
+
+.introduction3:hover {
+    color: rgb(0, 0, 0);
+    transition: all;
+}
+
+.intro3 {
+    position: absolute;
+    left: 150px;
+    top: 138px;
+    width: 100%;
+}
+
+.introduction4 {
+    content: '';
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-family: 'poppins', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 2.7rem;
+    opacity: 0.3;
+}
+
+.introduction4:hover {
+    color: rgb(0, 0, 0);
+    transition: all;
+}
+
+.intro4 {
+    position: absolute;
+    top: -1px;
+    left: 100px;
+}
+
+/* ^^^ that concludes all the introductions */
+
+.introb {
+    position: absolute;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+    width: 55px;
+    height: 20px;
+    border-radius: 20px;
+    animation: introbanim 2s linear infinite;
+    animation-timing-function: cubic-bezier(1, 0, 0, 1);
+}
+
+@keyframes introbanim {
+    0% {
+        transform: translateX(150px);
+        transition: all;
+    }
+
+    50% {
+        transform: translateX(-120px);
+        transition: all;
+    }
+
+    100% {
+        transform: translateX(150px);
+        transition: all;
+    }
+}
+
+.introbubble {
+    position: absolute;
+    left: 1070px;
+    top: 400px;
+}
+
+/* and ^ that concludes the intro bubble configurations aswell as the animation itself */
+/*quick credits section css */
+
+.creds {
+    position: absolute;
+    color: rgb(0, 0, 0);
+    font-family: 'poppins', sans-serif;
+    font-weight: 900;
+    /* very little attention will be paid to the following */
+    text-shadow: 0.4px 0.4px 0.4px black;
+    font-size: 1.2rem;
+}
+
+.creds:hover {
+    color: rgb(255, 255, 255);
+    transition: all;
+}
+
+.credits {
+    position: absolute;
+    width: 100%;
+    left: 1050px;
+    top: 30px;
+}
+
+/* that pretty much finishes up */
+/* now for the actual gamemode calculaters */
+
+nav .twos,
+.threes,
+.fours {
+    position: absolute;
+    color: rgb(0, 0, 0);
+    content: '';
+    font-family: 'poppins', sans-serif;
+    font-weight: 900;
+    background-color: rgb(255, 255, 255);
+    padding: 15px 40px;
+    border-radius: 20px;
+    cursor: crosshair;
+}
+
+nav .twos:hover,
+.threes:hover,
+.fours:hover {
+    outline: 3px solid wheat;
+}
+
+.twovstwo,
+.threevsthree,
+.fourvsfour {
+    position: absolute;
+    width: 100%;
+}
+
+.twovstwo {
+    top: 450px;
+    left: 50px;
+}
+
+.threevsthree {
+    top: 450px;
+    left: 300px;
+}
+
+.fourvsfour {
+    top: 450px;
+    left: 550px;
+}

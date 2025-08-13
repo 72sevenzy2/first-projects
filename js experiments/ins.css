@@ -1,0 +1,49 @@
+/* these classes will be used to add it in the js elements dynamically */
+/* will not always be used */
+
+.font-bold {
+    font-weight: 900;
+}
+
+.font-large {
+    font-size: 2rem;
+}
+
+.background-color-df {
+    background: hsl(0, 0%, 10%);
+}
+
+.font-white {
+    color: white;
+}
+
+.font-black {
+    color: black;
+}
+
+.white-background {
+    background-color: white;
+}
+
+/* Initial state (can be inline or in your stylesheet) */
+.fade-in {
+    opacity: 0;
+    animation: fadein 2s ease-in forwards;
+}
+
+@keyframes fadein {
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-out {
+    opacity: 1;
+    animation: fadeout 2s ease-in backwards;
+}
+
+@keyframes fadeout {
+    to {
+        opacity: 0;
+    }
+}
