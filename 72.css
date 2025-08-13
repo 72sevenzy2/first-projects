@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    flex-wrap: wrap;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: flex-start;
+    margin: 50px;
+    border: none;
+}
+
+input[type="text"] {
+    border: 2px solid hsl(0, 50%, 0%, 0.2);
+    border-radius: 7px;
+    padding: 10px;
+    min-width: 30vw;
+    text-align: center;
+    cursor: crosshair;
+}
+
+.submit-btn {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    left: 2vw;
+    cursor: pointer;
+    transition: background-color 1s ease;
+}
+
+.submit-btn:hover {
+    background-color: hsl(120, 100%, 35%);
+}
+
+.card {
+    text-align: center;
+}
+
+.dynamicbold {
+    font-weight: bold;
+    color: red;
+}
